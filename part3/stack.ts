@@ -13,6 +13,7 @@ export const pop : (initialStack : Stack) => [Stack, number] = (initialStack: St
     const x : number = initialStack[0];
     const q : Stack = R.drop(1, initialStack);
     return [q, x];
+    //test
 }
 
 export const stackManip : (initialStack: Stack) => [Stack, undefined] = (initialStack: Stack)=> {
