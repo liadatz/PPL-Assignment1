@@ -14,31 +14,32 @@ const isVowel: (c:string) => boolean = (c: string) : boolean => {
         return false;
 }
 /* Question 1 */
-export const countVowels = (s: string) : number => {
+export const countVowels: (s: string) => number = (s: string) : number => {
     return (R.filter(isVowel, stringToArray(s))).length;
 };
 
 /* Question 2 */
-const composeAddition = (counter: number, currChar: string): string[] => {
+const composeAddition: (x: number, s: string) => string[]  = (counter: number, currChar: string): string[] => {
     if (counter === 1) return [currChar]
     else return [currChar,counter.toString()]
 
 }
 
-const recursiveLegnthEncoding = (s: string[], counter: number, index: number, currChar: string, output: string[]): string[] => { 
+const recursiveLegnthEncoding: (s: string[], x: number, y: number, c: string, z: string[]) => string[] = 
+    (s: string[], counter: number, index: number, currChar: string, output: string[]): string[] => { 
     if (index + 1 >= s.length) return R.concat(output, composeAddition(counter, currChar))
     else if (s[index + 1] === currChar) return recursiveLegnthEncoding(s, counter + 1, index + 1, currChar, output)
     else return recursiveLegnthEncoding(s, 1, index + 1, s[index + 1], R.concat(output, composeAddition(counter, currChar)))
 
 }
 
-export const runLengthEncoding = (s: string): string => {
+export const runLengthEncoding: (s: string) => string = (s: string): string => {
     const stringArray : string[]  = stringToArray(s)
     return R.join("", recursiveLegnthEncoding(stringArray, 1, 0, stringArray[0], []))
 }
 
 /* Question 3 */
-const clean = (s: string): string[] => stringToArray(s).filter((c: string): boolean => {
+const clean: (s: string) => string[] = (s: string): string[] => stringToArray(s).filter((c: string): boolean => {
     return (c === '[' || c === ']' ||c === '(' || c === ')' ||c === '{' || c ==='}')});
 
 export const func = (s: string[]): string[] =>{
@@ -52,7 +53,7 @@ export const func = (s: string[]): string[] =>{
 }
 
 
-export const isPaired = pipe(
+export const isPaired: (s: string) => boolean = pipe(
     (s: string): string[] => func(clean(s)),
     (s: string[]): boolean => s.length === 0
 );
