@@ -10,7 +10,7 @@ describe("Assignment 1 Part 2", () => {
 
     describe("runLengthEncoding", () => {
         it("compresses a string", () => {
-            expect(runLengthEncoding("A  B CC")).to.equal("a");
+            expect(runLengthEncoding("a")).to.equal("a");
         });
     });
 

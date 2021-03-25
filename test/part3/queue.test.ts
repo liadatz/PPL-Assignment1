@@ -3,7 +3,7 @@ import * as Q from "../../src/part3/queue";
 
 describe("Queue", () => {
     it("can enqueue", () => {
-        expect(Q.enqueue(5)([1, 2, 3])).to.deep.equal([[1, 2, 3, 5], undefined]);
+        expect(Q.enqueue(5)([])).to.deep.equal([[5], undefined]);
     });
 
     it("can dequeue", () => {
